@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PatientForm from './Components/PatientForm';
 import PatientList from './Components/PatientList';
-import AppointmentForm from './Components/AppointmentForm'
+import AppointmentForm from './Components/AppointmentForm';
 import Appointment from './Components/Appointment';
 
 function App() {

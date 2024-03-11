@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import '../Styles/PatientList.css'
 
-const PatientForm = ({ onSubmit }) => {
+function PatientForm({ onSubmit }) {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [gender, setGender] = useState('');
@@ -41,6 +42,6 @@ const PatientForm = ({ onSubmit }) => {
       <button type="submit">Submit</button>
     </form>
   );
-};
+}
 
 export default PatientForm;
