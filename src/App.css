@@ -17,22 +17,51 @@
 }
 
 /* Non-prefixed and Mozilla-prefixed properties for cross-browser compatibility */
-html::-moz-scrollbar {
+::-moz-scrollbar {
     width: 12px;
     background-color: #FFFFFF;
 }
 
-html::-moz-scrollbar-thumb {
+::-moz-scrollbar-thumb {
     background-color: #1A8EFD;
     border-radius: 4rem;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
+/* Apply custom scrollbar styles to all elements with overflow-y: scroll */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    width: 12px; /* Increased width for better accessibility */
+}
+
+*::-webkit-scrollbar-track {
+    background-color: #FFFFFF;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #1A8EFD;
+    border-radius: 4rem;
+}
+
+*::-moz-scrollbar {
+    width: 12px;
+    background-color: #FFFFFF;
+}
+
+*::-moz-scrollbar-thumb {
+    background-color: #1A8EFD;
+    border-radius: 4rem;
+}
+
+/* Apply smooth scrolling behavior to specific elements */
+html {
+    scroll-behavior: smooth;
+}
+
+.smooth-scroll {
+    scroll-behavior: smooth;
 }
