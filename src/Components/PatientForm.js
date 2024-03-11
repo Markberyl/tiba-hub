@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../Styles/PatientList.css'
+
 
 function PatientForm({ onSubmit }) {
   const [name, setName] = useState('');

@@ -1,40 +1,23 @@
-import React, { useState } from 'react';
-import PatientForm from './Components/PatientForm';
-import PatientList from './Components/PatientList';
-import AppointmentForm from './Components/AppointmentForm';
-import Appointment from './Components/Appointment';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./Components/Home";
+import Appointment from "./Pages/Appointment";
+import PatientList from "./Components/PatientList"; // Import PatientList component
 
 function App() {
-  const [patients, setPatients] = useState([]);
-
-  const handleSubmit = (patient) => {
-    setPatients([...patients, patient]);
-  };
-
-  const handleEdit = (patientId, updatedPatient) => {
-    setPatients(patients.map(patient => patient.id === patientId ? updatedPatient : patient));
-  };
-
-  const handleDelete = (patientId) => {
-    setPatients(patients.filter(patient => patient.id !== patientId));
-  };
-
-  const handleError = (error) => {
-    console.error(error);
-  };
-
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Tiba-Hub</h1>
-      </header>
-      <main className="App-main">
-        <PatientForm onSubmit={handleSubmit} onError={handleError} />
-        <PatientList patients={patients} onEdit={handleEdit} onDelete={handleDelete} onError={handleError} />
-        <AppointmentForm component={Appointment} appointment={Appointment} onError={handleError} />
-      </main>
+      <Router basename="/Health-Plus">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/appointment" element={<Appointment />} />
+          <Route path="/patientlist" element={<PatientList />} /> {/* New route for PatientList */}
+        </Routes>
+      </Router>
     </div>
   );
 }
 
 export default App;
+

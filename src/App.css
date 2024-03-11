@@ -2,23 +2,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+/* Custom Scroll Bar */
+::-webkit-scrollbar {
+    width: 12px; /* Increased width for better accessibility */
 }
+
+::-webkit-scrollbar-track {
+    background-color: #FFFFFF;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #1A8EFD;
+    border-radius: 4rem;
+}
+
+/* Non-prefixed and Mozilla-prefixed properties for cross-browser compatibility */
+html::-moz-scrollbar {
+    width: 12px;
+    background-color: #FFFFFF;
+}
+
+html::-moz-scrollbar-thumb {
+    background-color: #1A8EFD;
+    border-radius: 4rem;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
-/* Custom Scroll Bar */
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    background-color: #FFFFFF;
-}
-::-webkit-scrollbar-thumb {
-    background-color: #1A8EFD;
-    border-radius: 4rem;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
