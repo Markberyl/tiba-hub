@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "./Navbar";
-
 import Info from "../Components/Info";
 import About from "../Components/About";
 import BookAppointment from "../Components/BookAppointment";

@@ -2,13 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./Components/Home";
-import Appointment from "./Pages/Appointment";
+import Appointment from "./Components/Appointment";
 import PatientList from "./Components/PatientList"; // Import PatientList component
 
 function App() {
   return (
     <div className="App">
-      <Router basename="/Health-Plus">
+      <Router basename="/Tiba-hub">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/appointment" element={<Appointment />} />
