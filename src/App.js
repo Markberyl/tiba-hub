@@ -8,7 +8,7 @@ import PatientList from "./Components/PatientList"; // Import PatientList compon
 function App() {
   return (
     <div className="App">
-      <Router basename="/Tiba-hub">
+      <Router basename="/">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/appointment" element={<Appointment />} />

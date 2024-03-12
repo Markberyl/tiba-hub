@@ -25,7 +25,7 @@ function Navbar() {
     <div className="navbar-section">
       <h1 className="navbar-title">
         <Link to="/">
-          Health <span className="navbar-sign">+</span>
+          Tiba<span className="navbar-sign">hub</span>
         </Link>
       </h1>
 
