@@ -4,18 +4,20 @@
     justify-content: space-between;
     align-items: center;
     height: 80px;
-    background-color: white;
+    background-color: #352c2c;
 }
 .navbar-title a {
     color: #1A8EFD;
     letter-spacing: .6px;
     text-decoration: none;
+    font-weight: bold;
 }
+
 .navbar-title {
     font-family: 'Poppins', sans-serif;
 }
 .navbar-sign {
-    color: #54de54;
+    color: #84e684;
     font-family: Cambria, sans-serif;
     font-size: 40px;
     font-weight: bold;

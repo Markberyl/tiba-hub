@@ -37,9 +37,9 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <a href="#services" className="navbar-links">
+          <Link to ="Services" className="navbar-links">
             Services
-          </a>
+          </Link>
         </li>
         <li>
           <a href="#about" className="navbar-links">
