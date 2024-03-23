@@ -1,19 +1,28 @@
-import React, { useState } from "react";
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState, useEffect } from "react";
+import { getAnalytics } from "firebase/analytics";
 import "../Styles/Service.css";
-import Bubbles from "./Bubbles";
+import Bubbles from "./Bubbles"; // Import Bubbles component
 
 function Service() {
   const [selectedService, setSelectedService] = useState(null);
+  const analytics = getAnalytics();
+
+  useEffect(() => {
+    // Log page view event when the component mounts
+    analytics.logEvent("page_view", { page_name: "Services" });
+  }, [analytics]);
 
   const handleServiceSelection = (service) => {
     setSelectedService(service);
+
+    // Log service selection event
+    analytics.logEvent("service_selection", { service_name: service });
   };
 
   return (
     <div className="service-container">
-      <Bubbles /> 
-      <h1 className="get-tiba-heading">Tiba-hub</h1> 
+      <Bubbles /> {/* Include the Bubbles component */}
+      <h1 className="get-tiba-heading">Tiba-hub</h1>
       <h2>Available Services</h2>
       <div className="services-list">
         {servicesData.map((service) => (
@@ -36,6 +45,6 @@ function Service() {
   );
 }
 
-const servicesData = ["Telemedicine", "Consultation", "Diagnosis"]; // Add more services as needed
+const servicesData = ["Telemedicine", "Consultation", "Diagnosis"];
 
 export default Service;
