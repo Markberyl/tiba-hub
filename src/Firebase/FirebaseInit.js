@@ -4,17 +4,16 @@ import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-  // Your Firebase configuration
-  apiKey: "AIzaSyAbRG_N0aadaJYGZaMON1S78Kgdp9JjUBk",
-  authDomain: "get-tiba.firebaseapp.com",
-  projectId: "get-tiba",
-  storageBucket: "get-tiba.appspot.com",
-  messagingSenderId: "353396895321",
-  appId: "1:353396895321:web:c6a5daa7b166c9aef5cb48",
-  measurementId: "G-SGWKY5PE8X"
-};
+  apiKey: "AIzaSyD7Ej5WGo9UxXVDn5dloKFYGdEymdi-JSk",
+  authDomain: "tiba-hub.firebaseapp.com",
+  projectId: "tiba-hub",
+  storageBucket: "tiba-hub.appspot.com",
+  messagingSenderId: "718834088368",
+  appId: "1:718834088368:web:142a37dc21c5286b7bbe75",
+  measurementId: "G-6SCDWRZKB1"
+}
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);

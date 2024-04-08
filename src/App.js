@@ -5,7 +5,7 @@ import Home from "./Components/Home";
 import Appointment from "./Components/Appointment";
 import PatientList from "./Components/PatientList";
 import Services from "./Components/Services";
-import { analytics } from "./firebase/firebaseInit";
+import { analytics } from "./Firebase/FirebaseInit";
 
 function App() {
   useEffect(() => {
