@@ -1,7 +1,12 @@
 import React from 'react';
-import '../Styles/PatientList.css'
+import '../Styles/PatientList.css';
 
 const PatientList = ({ patients }) => {
+  
+  if (!patients || patients.length === 0) {
+    return <p>No patients to display</p>;
+  }
+
   return (
     <table>
       <thead>

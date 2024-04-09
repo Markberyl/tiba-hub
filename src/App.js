@@ -1,14 +1,14 @@
-// App.js
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Components/Home";
-import Appointment from "./Components/Appointment";
-import PatientList from "./Components/PatientList";
-import Services from "./Components/Services";
+import Home from "./Pages/Home";
+import Appointment from "./Pages/Appointment";
+import Services from "./Pages/Services";
+import PatientList from "./Pages/Patient"; // Import PatientList from "./Pages/Patient"
 import { analytics } from "./Firebase/FirebaseInit";
 
 function App() {
   useEffect(() => {
+    // import { analytics } from "./Firebase/FirebaseInit";
     // Log page view event when the component mounts
     analytics.logEvent("page_view", { page_path: window.location.pathname });
   }, []);
