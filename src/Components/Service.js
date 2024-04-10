@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, } from "react";
 import { getAnalytics } from "firebase/analytics";
 import "../Styles/Service.css";
-import Bubbles from "./Bubbles"; // Import Bubbles component
+import Bubbles from "../Components/Bubbles"; // Import Bubbles component
 
 function Service() {
   const [selectedService, setSelectedService] = useState(null);
   const analytics = getAnalytics();
 
-  useEffect(() => {
+  if((analytics) => {
     // Log page view event when the component mounts
     analytics.logEvent("page_view", { page_name: "Services" });
+  // eslint-disable-next-line no-sequences
   }, [analytics]);
 
   const handleServiceSelection = (service) => {

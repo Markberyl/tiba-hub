@@ -4,13 +4,15 @@ import Home from "./Pages/Home";
 import Appointment from "./Pages/Appointment";
 import Services from "./Pages/Services";
 import PatientList from "./Pages/Patient"; // Import PatientList from "./Pages/Patient"
-import { analytics } from "./Firebase/FirebaseInit";
+import { app } from "./Firebase/FirebaseInit";
+import { logEvent, getAnalytics } from "firebase/analytics";
 
 function App() {
+  const analytics = getAnalytics(app);
   useEffect(() => {
     // import { analytics } from "./Firebase/FirebaseInit";
     // Log page view event when the component mounts
-    analytics.logEvent("page_view", { page_path: window.location.pathname });
+    logEvent(analytics, {"page_view": { page_path: window.location.pathname }});
   }, []);
 
   return (

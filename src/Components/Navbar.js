@@ -47,9 +47,9 @@ function Navbar() {
           </a>
         </li>
         <li>
-          <a href="#reviews" className="navbar-links">
+          <Link to ="reviews" className="navbar-links">
             Reviews
-          </a>
+          </Link>
         </li>
         <li>
           <a href="#doctors" className="navbar-links">
