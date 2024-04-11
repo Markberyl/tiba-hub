@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../Styles/AppointmentForm.css";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import "../Styles/AppointmentForm.css";
 
 function AppointmentForm() {
   const [patientName, setPatientName] = useState("");
   const [patientNumber, setPatientNumber] = useState("");
   const [patientGender, setPatientGender] = useState("default");
   const [appointmentTime, setAppointmentTime] = useState("");
+  const [symptoms, setSymptoms] = useState('');
   const [preferredMode, setPreferredMode] = useState("default");
   const [formErrors, setFormErrors] = useState({
     patientName: '',
     patientNumber: '',
     patientGender: '',
     appointmentTime: '',
+    symptoms: '',
     preferredMode: ''
   });
 
@@ -49,6 +51,10 @@ function AppointmentForm() {
       }
     }
 
+    if (!symptoms.trim()) {
+      errors.symptoms = "Symptoms are required";
+    }
+
     if (preferredMode === "default") {
       errors.preferredMode = "Please select preferred mode";
     }
@@ -63,12 +69,14 @@ function AppointmentForm() {
     setPatientNumber("");
     setPatientGender("default");
     setAppointmentTime("");
+    setSymptoms("");
     setPreferredMode("default");
     setFormErrors({
       patientName: '',
       patientNumber: '',
       patientGender: '',
       appointmentTime: '',
+      symptoms: '',
       preferredMode: ''
     });
 
@@ -80,7 +88,7 @@ function AppointmentForm() {
   return (
     <div className="appointment-form-section">
       <h1 className="legal-siteTitle">
-        <Link to="/">Health <span className="legal-siteSign">+</span></Link>
+        <Link to="/">Tiba - <span className="legal-siteSign">Hub</span></Link>
       </h1>
 
       <div className="form-container">
@@ -137,6 +145,19 @@ function AppointmentForm() {
               required
             />
             {formErrors.appointmentTime && <p className="error-message">{formErrors.appointmentTime}</p>}
+          </label>
+
+          <br />
+
+          <label>
+            Symptoms:
+            <input
+              type="text"
+              value={symptoms}
+              onChange={(e) => setSymptoms(e.target.value)}
+              required
+            />
+            {formErrors.symptoms && <p className="error-message">{formErrors.symptoms}</p>}
           </label>
 
           <br />

@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import Appointment from "./Pages/Appointment";
 import Services from "./Pages/Services";
 import PatientList from "./Pages/Patient"; // Import PatientList from "./Pages/Patient"
+import Doctors from "./Components/Doctors"
 import { app } from "./Firebase/FirebaseInit";
 import { logEvent, getAnalytics } from "firebase/analytics";
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/appointment" element={<Appointment />} />
           <Route path="/services" element={<Services />} />
           <Route path="/patientlist" element={<PatientList />} />
+          <Route path="/Doctors" element={<Doctors />} />
         </Routes>
       </Router>
     </div>
