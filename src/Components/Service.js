@@ -1,23 +1,27 @@
-import React, { useState, } from "react";
+import React, { useState, useEffect } from "react";
 import { getAnalytics } from "firebase/analytics";
 import "../Styles/Service.css";
 import Bubbles from "../Components/Bubbles"; // Import Bubbles component
+import heartCareImage from "../Assets/heartcare.jpg";
+import consultationImage from "../Assets/consultation.jpg";
+import dentalCareImage from "../Assets/dental care.jpg";
+import pharmacyImage from "../Assets/PHARMACY.jpg";
 
 function Service() {
   const [selectedService, setSelectedService] = useState(null);
   const analytics = getAnalytics();
 
-  if((analytics) => {
-    // Log page view event when the component mounts
-    analytics.logEvent("page_view", { page_name: "Services" });
-  // eslint-disable-next-line no-sequences
+  useEffect(() => {
+    if (analytics) {
+      analytics.logEvent("page_view", { page_name: "Services" });
+    }
   }, [analytics]);
 
   const handleServiceSelection = (service) => {
     setSelectedService(service);
-
-    // Log service selection event
-    analytics.logEvent("service_selection", { service_name: service });
+    if (analytics) {
+      analytics.logEvent("service_selection", { service_name: service });
+    }
   };
 
   return (
@@ -26,13 +30,14 @@ function Service() {
       <h1 className="get-tiba-heading">Tiba-hub</h1>
       <h2>Available Services</h2>
       <div className="services-list">
-        {servicesData.map((service) => (
+        {servicesData.map((service, index) => (
           <div
-            key={service}
+            key={index}
             className={`service-item ${selectedService === service ? "selected" : ""}`}
             onClick={() => handleServiceSelection(service)}
           >
-            {service}
+            <img src={getImageForService(service)} alt={service} className="service-image" />
+            <p>{service}</p>
           </div>
         ))}
       </div>
@@ -46,6 +51,21 @@ function Service() {
   );
 }
 
-const servicesData = ["Heart-care", "Consultation", "Dental-care" , "pharmacy"];
+const servicesData = ["Heart-care", "Consultation", "Dental-care", "Pharmacy"];
+
+const getImageForService = (service) => {
+  switch (service) {
+    case "Heart-care":
+      return heartCareImage;
+    case "Consultation":
+      return consultationImage;
+    case "Dental-care":
+      return dentalCareImage;
+    case "Pharmacy":
+      return pharmacyImage;
+    default:
+      return ""; // Default image URL
+  }
+};
 
 export default Service;

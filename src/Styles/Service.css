@@ -7,7 +7,6 @@
 
 .get-tiba-heading {
   color: #4ceaca; /* Update color */
-  font-size: 40px; /* Increase font size */
 }
 
 /* Services list */
@@ -20,13 +19,12 @@
 .service-item {
   border: 2px solid #4ceaca;
   border-radius: 10px;
-  padding: 30px 20px; /* Increase padding */
+  padding: 20px; /* Increase padding */
   margin: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
-  background-color: #000; /* Change background color to black */
-  color: #4ceaca; /* Change text color to glowing blue */
+  background-color: #fff; /* Add background color */
 }
 
 .service-item:hover {
@@ -49,18 +47,16 @@
 }
 
 .selected-service h3 {
-  color: #0b2822; /* Update color */
-  background-color: #4ceaca; /* Add background color */
-  padding: 10px; /* Add padding */
-  border-radius: 5px; /* Add border radius */
-  display: inline-block; /* Ensure inline block to contain padding */
-  font-family: 'Roboto', sans-serif; /* Example of custom font */
-  font-size: 24px; /* Increase font size */
+  color: #4ceaca; /* Update color */
 }
 
 .selected-service p {
-  font-size: 20px; /* Increase font size */
-  font-family: 'Montserrat', sans-serif; /* Example of custom font */
-  font-weight: bold; /* Make text bold */
+  font-size: 18px; /* Increase font size */
 }
 
+/* Images */
+.service-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
