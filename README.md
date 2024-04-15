@@ -1,1 +1,1 @@
-This is a E-health Application
+This is a web E-health Application
