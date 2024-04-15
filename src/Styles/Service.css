@@ -1,51 +1,66 @@
+/* General styles */
 .service-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
+  text-align: center;
+  margin: auto;
+  padding-top: 50px; /* Add padding to top */
 }
 
 .get-tiba-heading {
-  color: #6febba;
-  background-color: #1e2d2e;
-  padding: 10px;
-  text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 32px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  color: #4ceaca; /* Update color */
+  font-size: 40px; /* Increase font size */
 }
 
+/* Services list */
 .services-list {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .service-item {
+  border: 2px solid #4ceaca;
+  border-radius: 10px;
+  padding: 30px 20px; /* Increase padding */
+  margin: 20px;
   cursor: pointer;
-  padding: 10px;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  text-decoration: none;
-  font-family: 'Arial', sans-serif;
-  font-size: 18px;
-  color: #333;
-  transition: transform 0.2s ease-in-out;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+  background-color: #000; /* Change background color to black */
+  color: #4ceaca; /* Change text color to glowing blue */
 }
 
 .service-item:hover {
-  background-color: #f0f0f0;
-  transform: translateY(-3px);
+  transform: translateY(-5px); /* Add hover effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Add hover shadow */
 }
 
-.service-item.selected {
-  background-color: #84d5cd;
-  color: #fff;
+.selected {
+  background-color: #4ceaca;
+  color: white;
 }
 
+/* Selected service */
 .selected-service {
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #326d61;
-  border-radius: 5px;
-  background-color: #e7f6e7;
+  margin-top: 40px; /* Increase margin */
+  background-color: #f0f0f0; /* Change background color */
+  padding: 20px; /* Add padding */
+  border-radius: 10px; /* Add border radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
 }
+
+.selected-service h3 {
+  color: #0b2822; /* Update color */
+  background-color: #4ceaca; /* Add background color */
+  padding: 10px; /* Add padding */
+  border-radius: 5px; /* Add border radius */
+  display: inline-block; /* Ensure inline block to contain padding */
+  font-family: 'Roboto', sans-serif; /* Example of custom font */
+  font-size: 24px; /* Increase font size */
+}
+
+.selected-service p {
+  font-size: 20px; /* Increase font size */
+  font-family: 'Montserrat', sans-serif; /* Example of custom font */
+  font-weight: bold; /* Make text bold */
+}
+

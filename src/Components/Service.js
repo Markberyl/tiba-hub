@@ -46,6 +46,6 @@ function Service() {
   );
 }
 
-const servicesData = ["Telemedicine", "Consultation", "Diagnosis"];
+const servicesData = ["Heart-care", "Consultation", "Dental-care" , "pharmacy"];
 
 export default Service;
