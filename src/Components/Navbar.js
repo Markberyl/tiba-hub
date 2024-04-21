@@ -1,24 +1,12 @@
 import React, { useState } from "react";
 import "../Styles/Navbar.css";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 
 function Navbar() {
   const [nav, setNav] = useState(false);
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   const openNav = () => {
     setNav(!nav);
-  };
-
-  const handleChatBtnClick = () => {
-    if (!isButtonDisabled) {
-      toast.info("Experiencing high traffic, Please wait a moment.", {
-        position: toast.POSITION.TOP_CENTER,
-        onOpen: () => setIsButtonDisabled(true),
-        onClose: () => setIsButtonDisabled(false),
-      });
-    }
   };
 
   return (
@@ -37,7 +25,7 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to ="Services" className="navbar-links">
+          <Link to="/services" className="navbar-links">
             Services
           </Link>
         </li>
@@ -47,33 +35,25 @@ function Navbar() {
           </a>
         </li>
         <li>
-          <a href="#Reviews" className="navbar-links">
+          <a href="#reviews" className="navbar-links">
             Reviews
           </a>
         </li>
-        
-      
         <li>
-          <Link to ="doctors" className="navbar-links">
+          <Link to="/doctors" className="navbar-links">
             Doctors
+          </Link>
+        </li>
+        <li>
+          <Link to="/login" className="navbar-links">
+            Login
           </Link>
         </li>
       </ul>
 
-      <button
-        className="navbar-btn"
-        type="button"
-        disabled={isButtonDisabled}
-        onClick={handleChatBtnClick}
-      >
-      
-      </button>
-
       {/* Mobile */}
       <div className={`mobile-navbar ${nav ? "open-nav" : ""}`}>
-        <div onClick={openNav} className="mobile-navbar-close">
-        
-        </div>
+        <div onClick={openNav} className="mobile-navbar-close"></div>
 
         <ul className="mobile-navbar-links">
           <li>
@@ -102,17 +82,20 @@ function Navbar() {
             </a>
           </li>
           <li>
-            <a onClick={openNav} href="#contact">
-              Contact
-            </a>
+            <Link onClick={openNav} to="/login">
+              Login
+            </Link>
+          </li>
+          <li>
+            <Link onClick={openNav} to="/register">
+              Register
+            </Link>
           </li>
         </ul>
       </div>
 
       {/* Hamburger Icon */}
-      <div className="mobile-nav">
-      
-      </div>
+      <div className="mobile-nav" onClick={openNav}></div>
     </div>
   );
 }

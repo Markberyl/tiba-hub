@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import "../Styles/AppointmentForm.css";
+import BaseLayout from "./BaseLayout";
 
 function AppointmentForm() {
   const [patientName, setPatientName] = useState("");
@@ -86,19 +86,15 @@ function AppointmentForm() {
   }
 
   return (
-    <div className="appointment-form-section">
-      <h1 className="legal-siteTitle">
-        <Link to="/">Tiba - <span className="legal-siteSign">Hub</span></Link>
-      </h1>
-
-      <div className="form-container">
+   <BaseLayout>
+   <div className="form-container">
         <h2 className="form-title">
           <span>Book Appointment Online</span>
         </h2>
 
         <form className="form-content" onSubmit={handleSubmit}>
           <label>
-            Patient Full Name:
+           Full Name:
             <input
               type="text"
               value={patientName}
@@ -150,12 +146,11 @@ function AppointmentForm() {
           <br />
 
           <label>
-            Symptoms:
+            NOK Name:
             <input
               type="text"
-              value={symptoms}
+              value="nokName"
               onChange={(e) => setSymptoms(e.target.value)}
-              required
             />
             {formErrors.symptoms && <p className="error-message">{formErrors.symptoms}</p>}
           </label>
@@ -178,7 +173,7 @@ function AppointmentForm() {
         </form>
       </div>
       <ToastContainer />
-    </div>
+   </BaseLayout>
   );
 }
 

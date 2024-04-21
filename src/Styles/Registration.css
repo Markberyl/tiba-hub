@@ -1,0 +1,47 @@
+.Registration {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Registration h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .Registration form {
+    margin-bottom: 20px;
+  }
+  
+  .Registration .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .Registration .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .Registration .login-options {
+    text-align: center;
+  }
+  
+  .Registration .login-options p {
+    margin-bottom: 10px;
+  }
+  
+  .Registration .login-options a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .Registration .login-options a:hover {
+    text-decoration: underline;
+  }
+  

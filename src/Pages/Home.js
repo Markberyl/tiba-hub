@@ -1,24 +1,22 @@
 import React from "react";
-import Navbar from "../Components/Navbar";
+import { Link } from "react-router-dom"; 
 import Info from "../Components/Info";
 import MedicalPortal from "../Components/MedicalPortal";
 import About from "../Components/About";
 import BookAppointment from "../Components/BookAppointment";
 import Reviews from "../Components/Reviews";
-import Footer from "../Components/Footer";
+import BaseLayout from "../Components/BaseLayout";
 
 
 function Home() {
   return (
-    <div className="home-section">
-      <Navbar />
+    <BaseLayout>
       <MedicalPortal />
       <Info />
       <About />
       <BookAppointment />
       <Reviews />
-      <Footer />
-    </div>
+    </BaseLayout>
   );
 }
 

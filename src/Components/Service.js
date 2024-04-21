@@ -1,34 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { getAnalytics } from "firebase/analytics";
+import { logEvent, getAnalytics } from "firebase/analytics";
 import "../Styles/Service.css";
 import Bubbles from "../Components/Bubbles"; // Import Bubbles component
 import heartCareImage from "../Assets/heartcare.jpg";
 import consultationImage from "../Assets/consultation.jpg";
 import dentalCareImage from "../Assets/dental care.jpg";
 import pharmacyImage from "../Assets/PHARMACY.jpg";
+import BaseLayout from "./BaseLayout";
+
 
 function Service() {
   const [selectedService, setSelectedService] = useState(null);
   const analytics = getAnalytics();
 
   useEffect(() => {
-    if (analytics) {
-      analytics.logEvent("page_view", { page_name: "Services" });
-    }
-  }, [analytics]);
+    // import { analytics } from "./Firebase/FirebaseInit";
+    // Log page view event when the component mounts
+    logEvent(analytics, { "page_view": { page_path: window.location.pathname } });
+  }, []);
+
 
   const handleServiceSelection = (service) => {
     setSelectedService(service);
     if (analytics) {
-      analytics.logEvent("service_selection", { service_name: service });
+      logEvent(analytics, { "page_view": { page_path: window.location.pathname } });
     }
   };
 
   return (
-    <div className="service-container">
+    <BaseLayout>
       <Bubbles /> {/* Include the Bubbles component */}
-      <h1 className="get-tiba-heading">Tiba-hub</h1>
-      <h2>Available Services</h2>
+      <h1>Available Services</h1>
       <div className="services-list">
         {servicesData.map((service, index) => (
           <div
@@ -47,7 +49,7 @@ function Service() {
           <p>{selectedService}</p>
         </div>
       )}
-    </div>
+    </BaseLayout>
   );
 }
 
@@ -64,7 +66,7 @@ const getImageForService = (service) => {
     case "Pharmacy":
       return pharmacyImage;
     default:
-      return ""; // Default image URL
+      return "";
   }
 };
 
