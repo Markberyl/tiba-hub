@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import BaseLayout from "./BaseLayout";
 import Button from "react-bootstrap/Button";
-import Registration from "../Pages/Registration";
 import "../Styles/Login.css";
 
 export default function Login() {
@@ -21,40 +20,40 @@ export default function Login() {
 
   return (
     <BaseLayout>
-      <div className="Login">
+      <div className="container">
         <div className="form-container">
           <h2>Login</h2>
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="email">
-              <Form.Label>Email</Form.Label>
+            <Form.Group className="form-group email-input" controlId="email">
+              <Form.Label className="form-label">Email</Form.Label>
               <Form.Control
-                autoFocus
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                className="form-control"
               />
             </Form.Group>
 
-            <Form.Group controlId="password">
-              <Form.Label>Password</Form.Label>
+            <Form.Group className="form-group password-input" controlId="password">
+              <Form.Label className="form-label">Password</Form.Label>
               <Form.Control
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className="form-control"
               />
             </Form.Group>
 
-            <Button block size="lg" type="submit" disabled={!validateForm()}>
+            <Button className="btn-login" size="lg" type="submit" disabled={!validateForm()}>
               Login
             </Button>
           </Form>
           <div className="login-options">
             <p>Don't have an account?</p>
-            <Link to="/register">Register</Link>
+            <Link to="/register" className="register-link">Register</Link>
           </div>
         </div>
       </div>
     </BaseLayout>
   );
 }
-
