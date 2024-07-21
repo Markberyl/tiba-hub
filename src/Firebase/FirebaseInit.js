@@ -3,6 +3,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyD7Ej5WGo9UxXVDn5dloKFYGdEymdi-JSk",
   authDomain: "tiba-hub.firebaseapp.com",
@@ -19,4 +20,5 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const analytics = getAnalytics(app);
 
-export { app, auth, db, analytics };
+
+export { app, auth, db,  analytics };

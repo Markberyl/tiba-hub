@@ -5,7 +5,7 @@ import Registration from "./Components/Registration";
 import Home from "./Pages/Home";
 import Appointment from "./Pages/Appointment";
 import Services from "./Pages/Services";
-import PatientList from "./Pages/Patient"; // Import PatientList from "./Pages/Patient"
+import PatientList from "./Pages/Patient"; 
 import Doctors from "./Components/Doctors"
 import { app } from "./Firebase/FirebaseInit";
 import { logEvent, getAnalytics } from "firebase/analytics";

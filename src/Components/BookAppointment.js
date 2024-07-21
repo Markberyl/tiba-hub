@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Doctor from "../Assets/Images 4.jpg";
 import "../Styles/BookAppointment.css";
 
@@ -13,7 +13,7 @@ function BookAppointment() {
   return (
     <div className="ba-section">
       <div className="ba-image-content">
-      <img src={Doctor} alt="Doctor Group" className="ba-image1" />
+        <img src={Doctor} alt="Doctor Group" className="ba-image1" />
       </div>
 
       <div className="ba-text-content">
@@ -27,14 +27,12 @@ function BookAppointment() {
           better health and a happier life.
         </p>
 
-
-
         <button
           className="text-appointment-btn"
           type="button"
           onClick={handleBookAppointmentClick}
         >
-
+          Book Appointment
         </button>
       </div>
     </div>

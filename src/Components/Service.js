@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { logEvent, getAnalytics } from "firebase/analytics";
+import { Link } from "react-router-dom"; // Import Link component
 import "../Styles/Service.css";
 import Bubbles from "../Components/Bubbles"; // Import Bubbles component
 import heartCareImage from "../Assets/heartcare.jpg";
@@ -8,23 +9,17 @@ import dentalCareImage from "../Assets/dental care.jpg";
 import pharmacyImage from "../Assets/PHARMACY.jpg";
 import BaseLayout from "./BaseLayout";
 
-
 function Service() {
   const [selectedService, setSelectedService] = useState(null);
   const analytics = getAnalytics();
 
   useEffect(() => {
-    // import { analytics } from "./Firebase/FirebaseInit";
-    // Log page view event when the component mounts
     logEvent(analytics, { "page_view": { page_path: window.location.pathname } });
-  }, []);
-
+  }, [analytics]);
 
   const handleServiceSelection = (service) => {
     setSelectedService(service);
-    if (analytics) {
-      logEvent(analytics, { "page_view": { page_path: window.location.pathname } });
-    }
+    logEvent(analytics, { "page_view": { page_path: window.location.pathname } });
   };
 
   return (
@@ -47,6 +42,9 @@ function Service() {
         <div className="selected-service">
           <h3>You have selected:</h3>
           <p>{selectedService}</p>
+          <Link to="/appointment">
+            <button className="text-appointment-btn">Book Appointment</button>
+          </Link>
         </div>
       )}
     </BaseLayout>

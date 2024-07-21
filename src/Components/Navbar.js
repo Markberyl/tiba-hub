@@ -25,11 +25,6 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to="/services" className="navbar-links">
-            Services
-          </Link>
-        </li>
-        <li>
           <a href="#about" className="navbar-links">
             About
           </a>
@@ -60,11 +55,6 @@ function Navbar() {
             <Link onClick={openNav} to="/">
               Home
             </Link>
-          </li>
-          <li>
-            <a onClick={openNav} href="#services">
-              Services
-            </a>
           </li>
           <li>
             <a onClick={openNav} href="#about">

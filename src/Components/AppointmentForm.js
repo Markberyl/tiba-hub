@@ -9,14 +9,12 @@ function AppointmentForm() {
   const [patientNumber, setPatientNumber] = useState("");
   const [patientGender, setPatientGender] = useState("default");
   const [appointmentTime, setAppointmentTime] = useState("");
-  const [symptoms, setSymptoms] = useState('');
   const [preferredMode, setPreferredMode] = useState("default");
   const [formErrors, setFormErrors] = useState({
     patientName: '',
     patientNumber: '',
     patientGender: '',
     appointmentTime: '',
-    symptoms: '',
     preferredMode: ''
   });
 
@@ -51,10 +49,6 @@ function AppointmentForm() {
       }
     }
 
-    if (!symptoms.trim()) {
-      errors.symptoms = "Symptoms are required";
-    }
-
     if (preferredMode === "default") {
       errors.preferredMode = "Please select preferred mode";
     }
@@ -69,32 +63,30 @@ function AppointmentForm() {
     setPatientNumber("");
     setPatientGender("default");
     setAppointmentTime("");
-    setSymptoms("");
     setPreferredMode("default");
     setFormErrors({
       patientName: '',
       patientNumber: '',
       patientGender: '',
       appointmentTime: '',
-      symptoms: '',
       preferredMode: ''
     });
 
-    toast.success("Appointment Scheduled !", {
+    toast.success("Appointment Scheduled!", {
       position: toast.POSITION.TOP_CENTER,
     });
   }
 
   return (
-   <BaseLayout>
-   <div className="form-container">
+    <BaseLayout>
+      <div className="form-container">
         <h2 className="form-title">
           <span>Book Appointment Online</span>
         </h2>
 
         <form className="form-content" onSubmit={handleSubmit}>
           <label>
-           Full Name:
+            Full Name:
             <input
               type="text"
               value={patientName}
@@ -146,18 +138,6 @@ function AppointmentForm() {
           <br />
 
           <label>
-            NOK Name:
-            <input
-              type="text"
-              value="nokName"
-              onChange={(e) => setSymptoms(e.target.value)}
-            />
-            {formErrors.symptoms && <p className="error-message">{formErrors.symptoms}</p>}
-          </label>
-
-          <br />
-
-          <label>
             Preferred Mode:
             <select value={preferredMode} onChange={(e) => setPreferredMode(e.target.value)}>
               <option value="default">Select Mode</option>
@@ -173,8 +153,9 @@ function AppointmentForm() {
         </form>
       </div>
       <ToastContainer />
-   </BaseLayout>
+    </BaseLayout>
   );
 }
 
 export default AppointmentForm;
+
