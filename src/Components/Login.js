@@ -10,6 +10,7 @@ import "../Styles/Login.css";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null); 
   const navigate = useNavigate();
 
   function validateForm() {
@@ -18,16 +19,12 @@ export default function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
-
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
-        console.log('User logged in:', user);
-        navigate("/services");
+        navigate("/dashboard"); 
       })
       .catch((error) => {
-        console.error('Error logging in:', error.message);
-        alert("Invalid login credentials");
+        setError(error.message);
       });
   }
 
@@ -36,6 +33,7 @@ export default function Login() {
       <div className="container">
         <div className="form-container">
           <h2>Login</h2>
+          {error && <p className="error-message">{error}</p>} 
           <Form onSubmit={handleSubmit}>
             <Form.Group className="form-group email-input" controlId="email">
               <Form.Label className="form-label">Email</Form.Label>
@@ -70,4 +68,3 @@ export default function Login() {
     </BaseLayout>
   );
 }
-
