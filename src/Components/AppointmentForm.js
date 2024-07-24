@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { collection, addDoc } from "firebase/firestore";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { db } from "../Firebase/FirebaseInit";
 import "../Styles/AppointmentForm.css";
 import BaseLayout from "./BaseLayout";
 
@@ -17,11 +20,20 @@ function AppointmentForm() {
     appointmentTime: '',
     preferredMode: ''
   });
+  const [user, setUser] = useState(null);
 
-  function handleSubmit(e) {
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  async function handleSubmit(e) {
     e.preventDefault();
 
-    // Validate form inputs
     const errors = {};
     if (!patientName.trim()) {
       errors.patientName = "Patient name is required";
@@ -58,23 +70,46 @@ function AppointmentForm() {
       return;
     }
 
-    // Reset form fields and errors after successful submission
-    setPatientName("");
-    setPatientNumber("");
-    setPatientGender("default");
-    setAppointmentTime("");
-    setPreferredMode("default");
-    setFormErrors({
-      patientName: '',
-      patientNumber: '',
-      patientGender: '',
-      appointmentTime: '',
-      preferredMode: ''
-    });
+    if (!user) {
+      toast.error("You must be logged in to schedule an appointment.", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+      return;
+    }
 
-    toast.success("Appointment Scheduled!", {
-      position: toast.POSITION.TOP_CENTER,
-    });
+    try {
+      await addDoc(collection(db, "appointments"), {
+        patientName,
+        patientNumber,
+        patientGender,
+        appointmentTime,
+        preferredMode,
+        userId: user.uid,
+        createdAt: new Date()
+      });
+
+      setPatientName("");
+      setPatientNumber("");
+      setPatientGender("default");
+      setAppointmentTime("");
+      setPreferredMode("default");
+      setFormErrors({
+        patientName: '',
+        patientNumber: '',
+        patientGender: '',
+        appointmentTime: '',
+        preferredMode: ''
+      });
+
+      toast.success("Appointment Scheduled!", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      toast.error("Failed to schedule appointment. Please try again.", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    }
   }
 
   return (
@@ -158,4 +193,3 @@ function AppointmentForm() {
 }
 
 export default AppointmentForm;
-
